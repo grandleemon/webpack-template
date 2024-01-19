@@ -12,6 +12,7 @@
     "allowSyntheticDefaultImports": true
   },
   "ts-node": {
+    "swc": true,
     "compilerOptions": {
       "module": "CommonJS"
     }
