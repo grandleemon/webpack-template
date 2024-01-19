@@ -1,21 +1,26 @@
-import ReactRefreshTypeScript from "react-refresh-typescript";
-import { WebpackConfig } from "./types";
-import { ModuleOptions } from "webpack";
+import type { WebpackConfig } from "./types";
+import type { ModuleOptions } from "webpack";
 
 export const buildLoaders = ({ isDev }: WebpackConfig): ModuleOptions["rules"] => {
-	const tsLoader = {
+	const swcLoader = {
 		test: /\.tsx?$/,
+		exclude: /node_modules/,
 		use: [
 			{
-				loader: "ts-loader",
+				loader: "swc-loader",
 				options: {
-					getCustomTransformers: () => ({
-						before: [isDev && ReactRefreshTypeScript()].filter(Boolean),
-					}),
+					jsc: {
+						transform: {
+							react: {
+								runtime: "automatic",
+								development: isDev,
+								refresh: isDev,
+							},
+						},
+					},
 				},
 			},
 		],
-		exclude: /node_modules/,
 	};
 
 	const sassLoader = {
@@ -29,7 +34,7 @@ export const buildLoaders = ({ isDev }: WebpackConfig): ModuleOptions["rules"] =
 	};
 
 	return [
-		tsLoader,
+		swcLoader,
 		sassLoader,
 	];
 };

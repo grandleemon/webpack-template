@@ -1,12 +1,9 @@
-import path from "path";
-import HtmlWebpackPlugin from "html-webpack-plugin";
-import { Configuration, ProgressPlugin } from "webpack";
-import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
-import ReactRefreshTypeScript from "react-refresh-typescript";
+import { Configuration } from "webpack";
 import { WebpackConfig } from "./types";
 import { buildDevServer } from "./buildDevServer";
 import { buildPlugins } from "./buildPlugins";
 import { buildLoaders } from "./buildLoaders";
+import TerserPlugin from "terser-webpack-plugin";
 
 export const buildWebpackConfig = (config: WebpackConfig): Configuration => {
 	const { isDev, port, paths } = config;
@@ -27,6 +24,13 @@ export const buildWebpackConfig = (config: WebpackConfig): Configuration => {
 		},
 		resolve: {
 			extensions: [".tsx", ".ts", ".js"],
+		},
+		optimization: {
+			minimize: true, minimizer: [
+				new TerserPlugin({
+					minify: TerserPlugin.swcMinify,
+				}),
+			],
 		},
 	};
 };
