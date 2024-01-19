@@ -13,7 +13,7 @@ export default (env: EnvBuild) => {
 
 	const config: webpack.Configuration = {
 		mode: isDev ? "development" : "production",
-		entry: path.resolve(__dirname, "src", "index.ts"),
+		entry: path.resolve(__dirname, "src", "index.tsx"),
 		devtool: isDev ? "eval-cheap-module-source-map" : "source-map",
 		output: {
 			path: path.resolve(__dirname, "build"),
