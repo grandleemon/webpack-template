@@ -26,7 +26,8 @@ export const buildWebpackConfig = (config: WebpackConfig): Configuration => {
 			extensions: [".tsx", ".ts", ".js"],
 		},
 		optimization: {
-			minimize: true, minimizer: [
+			minimize: true,
+			minimizer: [
 				new TerserPlugin({
 					minify: TerserPlugin.swcMinify,
 				}),
