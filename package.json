@@ -8,10 +8,13 @@
     "build:dev": "webpack --env mode=development"
   },
   "devDependencies": {
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.11",
     "@types/node": "^20.11.5",
     "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",
     "html-webpack-plugin": "^5.6.0",
+    "react-refresh": "^0.14.0",
+    "react-refresh-typescript": "^2.0.9",
     "ts-loader": "^9.5.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3",

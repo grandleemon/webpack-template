@@ -1,6 +1,8 @@
 import path from "path";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import webpack from "webpack";
+import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
+import ReactRefreshTypeScript from "react-refresh-typescript";
 import type { Configuration } from "webpack-dev-server";
 
 type Mode = "development" | "production";
@@ -33,12 +35,22 @@ export default (env: EnvBuild) => {
 				template: path.resolve(__dirname, "public", "index.html"),
 			}),
 			new webpack.ProgressPlugin(),
-		],
+			isDev && new ReactRefreshWebpackPlugin(),
+		].filter(Boolean),
 		module: {
 			rules: [
 				{
 					test: /\.tsx?$/,
-					use: "ts-loader",
+					use: [
+						{
+							loader: "ts-loader",
+							options: {
+								getCustomTransformers: () => ({
+									before: [isDev && ReactRefreshTypeScript()].filter(Boolean),
+								}),
+							},
+						},
+					],
 					exclude: /node_modules/,
 				},
 			],
