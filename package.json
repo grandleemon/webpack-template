@@ -6,7 +6,8 @@
     "start": "webpack serve --env mode=development",
     "build:prod": "webpack --env mode=production",
     "build:dev": "webpack --env mode=development",
-    "lint": "eslint ./src"
+    "lint:check": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "devDependencies": {
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.11",

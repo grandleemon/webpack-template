@@ -15,7 +15,7 @@ export default (env: EnvBuild) => {
 		paths: {
 			entry: path.resolve(__dirname, "src", "index.tsx"),
 			html: path.resolve(__dirname, "public", "index.html"),
-			output: path.resolve(__dirname, "build")
+			output: path.resolve(__dirname, "build"),
 		},
 	});
 

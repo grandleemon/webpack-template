@@ -2,7 +2,9 @@ import type { WebpackConfig } from "./types";
 import type { ModuleOptions } from "webpack";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
-export const buildLoaders = ({ isDev }: WebpackConfig): ModuleOptions["rules"] => {
+export const buildLoaders = ({
+	isDev,
+}: WebpackConfig): ModuleOptions["rules"] => {
 	const swcLoader = {
 		test: /\.tsx?$/,
 		exclude: /node_modules/,
@@ -34,8 +36,5 @@ export const buildLoaders = ({ isDev }: WebpackConfig): ModuleOptions["rules"] =
 		exclude: /node_modules/,
 	};
 
-	return [
-		swcLoader,
-		sassLoader,
-	];
+	return [swcLoader, sassLoader];
 };

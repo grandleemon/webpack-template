@@ -16,4 +16,3 @@ export interface WebpackConfig extends EnvBuild {
 	isProd: boolean;
 	paths: BuildPaths;
 }
-

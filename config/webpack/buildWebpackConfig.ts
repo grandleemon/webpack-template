@@ -1,5 +1,5 @@
-import { Configuration } from "webpack";
-import { WebpackConfig } from "./types";
+import type { Configuration } from "webpack";
+import type { WebpackConfig } from "./types";
 import { buildDevServer } from "./buildDevServer";
 import { buildPlugins } from "./buildPlugins";
 import { buildLoaders } from "./buildLoaders";
