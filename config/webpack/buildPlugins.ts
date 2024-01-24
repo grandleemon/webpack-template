@@ -1,9 +1,10 @@
-import HtmlWebpackPlugin from "html-webpack-plugin";
-import { ProgressPlugin, Configuration } from "webpack";
 import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
-import type { WebpackConfig } from "./types";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
+import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import { Configuration, ProgressPlugin } from "webpack";
+
+import type { WebpackConfig } from "./types";
 
 export const buildPlugins = ({
 	paths,

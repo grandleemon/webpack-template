@@ -1,9 +1,10 @@
-import type { Configuration } from "webpack";
-import type { WebpackConfig } from "./types";
-import { buildDevServer } from "./buildDevServer";
-import { buildPlugins } from "./buildPlugins";
-import { buildLoaders } from "./buildLoaders";
 import TerserPlugin from "terser-webpack-plugin";
+import type { Configuration } from "webpack";
+
+import { buildDevServer } from "./buildDevServer";
+import { buildLoaders } from "./buildLoaders";
+import { buildPlugins } from "./buildPlugins";
+import type { WebpackConfig } from "./types";
 
 export const buildWebpackConfig = (config: WebpackConfig): Configuration => {
 	const { isDev, port, paths } = config;

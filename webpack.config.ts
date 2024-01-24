@@ -1,5 +1,6 @@
-import webpack from "webpack";
 import path from "path";
+import webpack from "webpack";
+
 import { buildWebpackConfig } from "./config/webpack/buildWebpackConfig";
 import type { EnvBuild } from "./config/webpack/types";
 

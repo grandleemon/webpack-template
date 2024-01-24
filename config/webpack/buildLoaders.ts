@@ -1,6 +1,7 @@
-import type { WebpackConfig } from "./types";
-import type { ModuleOptions } from "webpack";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import type { ModuleOptions } from "webpack";
+
+import type { WebpackConfig } from "./types";
 
 export const buildLoaders = ({
 	isDev,
