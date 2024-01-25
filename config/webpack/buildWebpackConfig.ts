@@ -28,11 +28,23 @@ export const buildWebpackConfig = (config: WebpackConfig): Configuration => {
 		},
 		optimization: {
 			minimize: true,
-			minimizer: [
-				new TerserPlugin({
-					minify: TerserPlugin.swcMinify,
-				}),
-			],
+			runtimeChunk: "single",
+			minimizer: isDev
+				? []
+				: [
+						new TerserPlugin({
+							minify: TerserPlugin.swcMinify,
+						}),
+					],
+			splitChunks: {
+				cacheGroups: {
+					vendor: {
+						test: /[\\/]node_modules[\\/]/,
+						name: "vendors",
+						chunks: "all",
+					},
+				},
+			},
 		},
 	};
 };
